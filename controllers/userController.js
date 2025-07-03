@@ -1,4 +1,4 @@
-const users = require("../models/userModal")
+const users = require("../models/userModel")
 
 
 const register = async (req, res) => {
@@ -10,7 +10,7 @@ const register = async (req, res) => {
         const existingUser = await users.findOne({ email })
         if (existingUser) {
             res.status(406).json("Account already Exist !! please login..")
-        } 
+        }
         else {
             const newUser = new users({
                 username,
@@ -21,7 +21,7 @@ const register = async (req, res) => {
             await newUser.save()
 
             res.status(200).json(newUser)
-console.log('Registration sucess');
+            console.log('Registration sucess');
 
         }
     } catch (err) {
@@ -39,13 +39,13 @@ const login = async (req, res) => {
         console.log(existingUser);
 
         if (existingUser) {
-          
+
             res.status(200).json({
                 existingUser
             });
             console.log('login sucess');
-            
-        } 
+
+        }
         else {
             res.status(404).json(`Incorrect Email/Password`);
         }
@@ -57,4 +57,4 @@ const login = async (req, res) => {
 
 
 
-module.exports = { register,login };
+module.exports = { register, login };

@@ -1,4 +1,6 @@
 const userController = require('./controllers/userController')
+const ticketController = require('./controllers/ticketController')
+const movieController = require('./controllers/movieController')
 
 
 const express = require("express");
@@ -27,3 +29,13 @@ app.listen(PORT, () => {
 app.post("/register",userController.register);
 
 app.post("/login",userController.login)
+
+app.post("/createticket",ticketController.CreateTicket)
+
+app.post("/createmovie",movieController.createMovie)
+
+app.get("/getmovies",movieController.getAllMovies)
+
+app.get("/getmoviebyid/:id",movieController.getMoviebyId)
+
+app.get("/getticketbyid/:email",ticketController.getTicketsByEmail)
