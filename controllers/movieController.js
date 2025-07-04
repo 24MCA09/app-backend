@@ -2,10 +2,11 @@ const Movie = require('../models/movieModel');
 
 const createMovie = async (req, res) => {
   try {
-    const { title, image, genre, duration, rating, language, director, description, videourl, trailertitle } = req.body;
+    const {id, title, image, genre, duration, rating, language, director, description, videourl, trailertitle } = req.body;
     console.log(req.body);
 
     const newMovie = new Movie({
+      id,
       title,
       image,
       genre,
