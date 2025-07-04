@@ -52,3 +52,7 @@ const getMoviebyId = async (req, res) => {
 
 
 module.exports = { createMovie, getAllMovies, getMoviebyId };
+
+
+
+
